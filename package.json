@@ -1,0 +1,33 @@
+{
+  "name": "express-crud",
+  "version": "0.1.0",
+  "description": "A CRUD API using Express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohrabtaee/express-crud.git"
+  },
+  "author": "Sohrab Taee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sohrabtaee/express-crud/issues"
+  },
+  "homepage": "https://github.com/sohrabtaee/express-crud#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  }
+}
