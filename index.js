@@ -14,6 +14,7 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 
 const app = express()
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/', routes)

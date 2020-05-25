@@ -1,6 +1,7 @@
 import express from 'express'
 import {
   getNotes,
+  findNote,
   createNote,
   updateNote,
   removeNote,
@@ -8,50 +9,14 @@ import {
 
 const router = express.Router()
 
-router.get('/notes', async (req, res, next) => {
-  try {
-    const notes = await getNotes()
-    res.json(notes)
-  } catch (error) {
-    next(error)
-  }
-})
+router.get('/notes', getNotes)
 
-router.post('/notes', async (req, res, next) => {
-  try {
-    const result = await createNote(req.body)
-    res.status(201).json(result)
-  } catch (error) {
-    next(error)
-  }
-})
+router.get('/notes/:noteId', findNote)
 
-router.put('/notes/:noteId', async (req, res, next) => {
-  try {
-    const result = await updateNote(req.params.noteId, req.body)
-    if (result) {
-      res.json(result)
-    } else {
-      next(new Error('Note not found.'))
-    }
-  } catch (error) {
-    next(error)
-  }
-})
+router.post('/notes', createNote)
 
-router.delete('/notes/:noteId', async (req, res, next) => {
-  try {
-    const result = await removeNote(req.params.noteId)
-    if (result) {
-      res.json({
-        message: 'Note deleted successfully.',
-      })
-    } else {
-      next(new Error('Note not found.'))
-    }
-  } catch (error) {
-    next(error)
-  }
-})
+router.put('/notes/:noteId', updateNote)
+
+router.delete('/notes/:noteId', removeNote)
 
 export default router
