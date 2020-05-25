@@ -28,8 +28,12 @@ router.post('/notes', async (req, res, next) => {
 
 router.put('/notes/:noteId', async (req, res, next) => {
   try {
-    await updateNote(req.params.noteId, req.body)
-    res.send()
+    const result = await updateNote(req.params.noteId, req.body)
+    if (result) {
+      res.json(result)
+    } else {
+      next(new Error('Note not found.'))
+    }
   } catch (error) {
     next(error)
   }
@@ -37,8 +41,14 @@ router.put('/notes/:noteId', async (req, res, next) => {
 
 router.delete('/notes/:noteId', async (req, res, next) => {
   try {
-    await removeNote(req.params.noteId)
-    res.send()
+    const result = await removeNote(req.params.noteId)
+    if (result) {
+      res.json({
+        message: 'Note deleted successfully.',
+      })
+    } else {
+      next(new Error('Note not found.'))
+    }
   } catch (error) {
     next(error)
   }
