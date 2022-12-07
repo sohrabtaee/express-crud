@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/sohrabtaee/express-crud#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-validator": "^6.4.1",
     "http-errors": "^1.7.3",
     "mongoose": "^5.9.15"
